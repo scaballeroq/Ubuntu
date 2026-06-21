@@ -16,9 +16,13 @@ post-install:
 shell:
     ./Setup/shell.sh
 
-# Seguridad y Endurecimiento (UFW, DNS-over-TLS)
+# Seguridad básica (UFW firewall)
 security:
     ./Setup/seguridad.sh
+
+# Seguridad avanzada (DNS-over-TLS)
+security-dot:
+    ./Setup/seguridad-dot.sh
 
 # Fuentes de desarrollo (Nerd Fonts)
 fonts:

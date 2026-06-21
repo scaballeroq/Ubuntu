@@ -1,7 +1,7 @@
 #!/bin/bash
 # yt-dlp-setup.sh - Instalación de dependencias para yt-dlp y multimedia para Ubuntu
 
-set -e
+set -euo pipefail
 
 echo "ℹ️ Instalando yt-dlp (desde backports) y FFMPEG vía APT..."
 # ffmpeg es esencial para la mezcla de streams y conversión de audio

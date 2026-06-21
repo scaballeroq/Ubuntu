@@ -1,7 +1,7 @@
 #!/bin/bash
 # shell.sh - Instalación de herramientas modernas de terminal y prompt Starship para Ubuntu
 
-set -e
+set -euo pipefail
 
 echo "ℹ️ Instalando utilidades de terminal modernas..."
 sudo apt update

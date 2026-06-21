@@ -3,7 +3,7 @@
 #
 # Este script aplica configuraciones recomendadas para GNOME en Ubuntu.
 
-set -e
+set -euo pipefail
 
 echo "🚀 Iniciando personalización de GNOME..."
 

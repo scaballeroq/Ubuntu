@@ -8,7 +8,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ~='cd ~'
-alias repos='cd ~/Workspace/Repos-Linux'
+alias repos='cd ~/Workspace/Repositorios'
 
 # 2. MEJORAS DE 'LS' (USANDO EZA)
 if command -v eza &> /dev/null; then

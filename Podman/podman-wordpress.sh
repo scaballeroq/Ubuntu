@@ -3,14 +3,17 @@
 
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/podman-common.sh"
+
 WP_DB_PASSWORD="${WP_DB_PASSWORD:-${MYSQL_ROOT_PASSWORD:-root}}"
 
-if ! podman network exists devfed-net; then podman network create devfed-net; fi
+ensure_podman_network
 
 echo "ℹ️ Iniciando WordPress..."
 podman run -d --replace \
     --name wordpress-dev \
-    --network devfed-net \
+    --network "$PODMAN_NETWORK" \
     -e WORDPRESS_DB_HOST=mysql-dev:3306 \
     -e WORDPRESS_DB_USER=root \
     -e WORDPRESS_DB_PASSWORD="$WP_DB_PASSWORD" \

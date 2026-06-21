@@ -3,15 +3,18 @@
 
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/podman-common.sh"
+
 KC_ADMIN="${KC_ADMIN:-admin}"
 KC_ADMIN_PASSWORD="${KC_ADMIN_PASSWORD:-admin}"
 
-if ! podman network exists devfed-net; then podman network create devfed-net; fi
+ensure_podman_network
 
 echo "ℹ️ Iniciando Keycloak..."
 podman run -d --replace \
     --name keycloak-dev \
-    --network devfed-net \
+    --network "$PODMAN_NETWORK" \
     -e KEYCLOAK_ADMIN="$KC_ADMIN" \
     -e KEYCLOAK_ADMIN_PASSWORD="$KC_ADMIN_PASSWORD" \
     -p 8083:8080 \

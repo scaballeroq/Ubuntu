@@ -1,7 +1,7 @@
 #!/bin/bash
 # podman-storybook.sh
 
-set -e
+set -euo pipefail
 
 if ! podman network exists devfed-net; then podman network create devfed-net; fi
 

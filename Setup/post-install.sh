@@ -1,3 +1,8 @@
+#!/bin/bash
+# post-install.sh - Configuración base post-instalación para Ubuntu 26.04 LTS
+
+set -euo pipefail
+
 # Detectar versión de Ubuntu
 CODENAME=$(grep '^VERSION_CODENAME=' /etc/os-release | cut -d= -f2)
 if [ -z "$CODENAME" ]; then
